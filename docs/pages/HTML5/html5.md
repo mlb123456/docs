@@ -1,6 +1,6 @@
 ---
-navbar: false
-title: 关于我1
+navbar: true
+title: 关于我
 ---
 
 热爱生活，喜欢运动  
