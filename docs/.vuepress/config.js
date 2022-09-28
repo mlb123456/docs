@@ -1,10 +1,15 @@
+const navConfig = require('./config/navConfig');
+const sidebarConfig = require('./config/sidebarConfig')
+
 module.exports = {
     base: "/docs/",
     title: "星辰大海",
-    description: "我成为某个人，某间，点着油灯的陋室，而这陋室冰凉的屋顶，被群星的亿万只脚踩成祭坛，我像一个领取圣餐的孩子，放大了胆子，但屏住呼吸。",
+    description: "日月星辰，山川大海",
     theme: 'reco',
     // 创建了一个meta标签
     head: [
+        ['link', { rel: 'icon', href: 'icon-mianxingniuyouguo' }],
+        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
         ['meta', { name: 'author', content: '星辰大海的博客' }],
         ['meta', { name: 'keywords', content: 'vuepress介绍 vuepress说明，星辰大海的博客' }]
     ],
@@ -13,17 +18,22 @@ module.exports = {
         // 左上角logo
         logo: '/assets/img/touxiang.png',
         type: 'blog',
-        subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
+        huawei: true, //华为文案
+        author: "山川大海",
+        smoothScroll: false, // 页面滚动效果 
+        nextLinks: true,// 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接
+        prevLinks: true,// 默认值是 true 。设置为 false 来禁用所有页面的 上一篇 链接
+        // subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
         // 博客配置
         blogConfig: {
             tag: {
                 location: 2,     // 在导航栏菜单中所占的位置，默认3
-                text: '標簽'      // 默认文案 “标签”
+                text: '标签'      // 默认文案 “标签”
             },
             // 分類
             category: {
                 location: 2,     // 在导航栏菜单中所占的位置，默认2
-                text: '分類' // 默认文案 “分类”
+                text: '分类' // 默认文案 “分类”
             },
 
             socialLinks: [     // 信息栏展示社交信息
@@ -31,65 +41,11 @@ module.exports = {
                 { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
             ]
         },
-        // 時間軸
-        nav: [
-            { text: "首頁", link: "/", icon: "reco-home" },
-            {
-                text: "分類", icon: "reco-category",
-                items: [
-                    {
-                        text: "HTML5",
-                        link: "/pages/HTML5/html5"
-                    },
-                    {
-                        text: "CSS3",
-                        link: "/pages/CSS3/css3"
-                    },
-                ]
-            },
-            {
-                text: "項目", icon: "reco-category",
-                items: [
-                    {
-                        text: "項目一",
-                        link: "/"
-                    },
-                    {
-                        text: "項目二",
-                        link: "/"
-                    },
-                    {
-                        text: "項目三",
-                        link: "/"
-                    }
-                ]
-            },
-            {
-                text: "工具箱",
-                icon: "/assets/img/niuyouguo.png",
-                items: [
-                    { text: "在线PS", link: "https://www.uupoop.com/" },
-                    { text: "奶牛快传", link: "https://cowtransfer.com/" },
-                    { text: "编程语言排行榜", link: "https://www.tiobe.com/tiobe-index/" },
-                ]
-            },
-            { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
-            {
-                text: "关于", icon: "reco-message",
-                items: [
-                    {
-                        text: "GitHub",
-                        link: "https://github.com/mlb123456",
-                        icon: "reco-github",
-                    },
-                    {
-                        text: "Gitee",
-                        link: "https://gitee.com/mabobo123",
-                        icon: "reco-mayun",
-                    },
-                ]
-            }
-        ],
+        // 导航栏
+        nav: navConfig,
+        // 侧边栏
+        sidebar: sidebarConfig,
+
         authorAvatar: '/assets/img/touxiang.png', //设置首页右侧信息栏头像
         // 友情链接
         friendLink: [
